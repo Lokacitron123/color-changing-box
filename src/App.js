@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ColorBox from "./ColorBox";
+import ColorInput from "./ColorInput";
+import colorNames from "colornames";
 
 function App() {
+  const defaultColor = "white"; // Define the default color here
+
+  const [currentColor, setCurrentColor] = useState(defaultColor);
+  const [hexValue, setHexValue] = useState("");
+  const [isDarkText, setIsDarkText] = useState(true);
+
+  const handleColorChange = (newColor) => {
+    setCurrentColor(newColor);
+
+    if (newColor) {
+      setHexValue(colorNames(newColor));
+    } else {
+      setHexValue("");
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <ColorBox
+        color={currentColor}
+        hexValue={hexValue}
+        isDarkText={isDarkText}
+      />
+      <ColorInput
+        onColorChange={handleColorChange}
+        setHexValue={setHexValue}
+        defaultColor={defaultColor}
+        isDarkText={isDarkText}
+        setIsDarkText={setIsDarkText}
+      />
+    </main>
   );
 }
 

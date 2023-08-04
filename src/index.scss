@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(to left, rgb(0, 0, 139), rgb(139, 0, 139));
+}
+
+.colorBox {
+  height: 400px;
+  width: 400px;
+  border-radius: 5px;
+  display: flex;
+  border: 2px solid #333;
+  justify-content: center;
+  align-items: center;
+}
+
+.colorInput {
+  display: flex;
+  flex-direction: column;
+  input,
+  button {
+    margin: 0.5rem;
+    width: 400px;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 5px;
+  }
+}
